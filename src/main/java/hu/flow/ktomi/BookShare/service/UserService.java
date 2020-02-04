@@ -1,6 +1,7 @@
 package hu.flow.ktomi.BookShare.service;
 
 import hu.flow.ktomi.BookShare.persistence.model.User;
+import hu.flow.ktomi.BookShare.persistence.repository.BookRepository;
 import hu.flow.ktomi.BookShare.persistence.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -17,6 +18,7 @@ import java.util.List;
 public class UserService {
 
     private final UserRepository userRepository;
+    private final BookRepository bookRepository;
 
     public List<User> findAll() {
         return userRepository.findAll();
@@ -36,4 +38,5 @@ public class UserService {
     public void delete(Long id) {
         userRepository.deleteById(id);
     }
+
 }

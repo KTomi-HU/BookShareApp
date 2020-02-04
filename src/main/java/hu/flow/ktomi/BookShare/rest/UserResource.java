@@ -41,4 +41,9 @@ public class UserResource {
         userService.delete(id);
         return ResponseEntity.ok().build();
     }
+
+//    @PutMapping("/user/{bookId}")
+//    public User assignBook(@PathVariable Long bookId) {
+//        return userService.assignBook(bookId);
+//    }
 }

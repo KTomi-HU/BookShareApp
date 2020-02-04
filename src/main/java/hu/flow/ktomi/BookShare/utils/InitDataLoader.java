@@ -20,12 +20,12 @@ public class InitDataLoader {
 
     @PostConstruct
     public void init() {
-        userRepository.save(User.builder().userName("Tomi").build());
-        userRepository.save(User.builder().userName("Evelin").build());
+        userRepository.save(User.builder().userName("Tomi").role(User.Role.ADMIN).eMailAddress("kocsistomi.dm@gmail.com").build());
+        userRepository.save(User.builder().userName("Evelin").role(User.Role.USER).eMailAddress("evelin@gmail.com").build());
 
-        bookRepository.save(Book.builder().title("Dune").authorFname("Frank").authorLname("Herbert").isAtHome(true).build());
-        bookRepository.save(Book.builder().title("1984").authorFname("George").authorLname("Orwell").isAtHome(true).build());
-        bookRepository.save(Book.builder().title("Alapítvány").authorFname("Isaac").authorLname("Asimov").isAtHome(true).build());
-        bookRepository.save(Book.builder().title("Szép új világ").authorFname("Aldous").authorLname("Huxley").isAtHome(true).build());
+        bookRepository.save(Book.builder().title("Dune").authorFname("Frank").authorLname("Herbert").blurb("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis at faucibus urna, sit amet ullamcorper.").isAtHome(true).build());
+        bookRepository.save(Book.builder().title("1984").authorFname("George").authorLname("Orwell").blurb("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis at faucibus urna, sit amet ullamcorper.").isAtHome(true).build());
+        bookRepository.save(Book.builder().title("Alapítvány").authorFname("Isaac").authorLname("Asimov").blurb("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis at faucibus urna, sit amet ullamcorper.").isAtHome(true).build());
+        bookRepository.save(Book.builder().title("Szép új világ").authorFname("Aldous").authorLname("Huxley").blurb("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis at faucibus urna, sit amet ullamcorper.").isAtHome(true).build());
     }
 }

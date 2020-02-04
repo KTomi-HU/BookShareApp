@@ -1,11 +1,14 @@
 package hu.flow.ktomi.BookShare.persistence.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -20,10 +23,25 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column
     private String userName;
 
+    @Column
+    private String eMailAddress;
+
+    @Column
     private String password;
 
-    @OneToMany(mappedBy = "owner")
+    @Column
+    @Enumerated(EnumType.STRING)
+    private Role role;
+
+    @OneToMany(mappedBy = "owner", fetch = FetchType.EAGER)
+    @JsonBackReference
     private List<Book> books;
+
+    public enum Role {
+        ADMIN,
+        USER
+    }
 }
