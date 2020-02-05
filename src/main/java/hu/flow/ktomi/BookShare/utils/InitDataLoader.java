@@ -1,6 +1,7 @@
 package hu.flow.ktomi.BookShare.utils;
 
 import hu.flow.ktomi.BookShare.persistence.model.Book;
+import hu.flow.ktomi.BookShare.persistence.model.Role;
 import hu.flow.ktomi.BookShare.persistence.model.User;
 import hu.flow.ktomi.BookShare.persistence.repository.BookRepository;
 import hu.flow.ktomi.BookShare.persistence.repository.UserRepository;
@@ -20,8 +21,8 @@ public class InitDataLoader {
 
     @PostConstruct
     public void init() {
-        userRepository.save(User.builder().userName("Tomi").role(User.Role.ADMIN).eMailAddress("kocsistomi.dm@gmail.com").build());
-        userRepository.save(User.builder().userName("Evelin").role(User.Role.USER).eMailAddress("evelin@gmail.com").build());
+        userRepository.save(User.builder().userName("Tomi").role(Role.ADMIN).eMailAddress("kocsistomi.dm@gmail.com").build());
+        userRepository.save(User.builder().userName("Evelin").role(Role.USER).eMailAddress("evelin@gmail.com").build());
 
         bookRepository.save(Book.builder().title("Dune").authorFname("Frank").authorLname("Herbert").blurb("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis at faucibus urna, sit amet ullamcorper.").isAtHome(true).build());
         bookRepository.save(Book.builder().title("1984").authorFname("George").authorLname("Orwell").blurb("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis at faucibus urna, sit amet ullamcorper.").isAtHome(true).build());

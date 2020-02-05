@@ -26,6 +26,9 @@ public class UserResource {
         return userService.findOne(id);
     }
 
+    @GetMapping("/user/{userName}")
+    public User findOneByName(@PathVariable String userName) {return userService.findUserByUserName(userName); }
+
     @PostMapping("/user")
     public User create(@RequestBody User user) {
         return userService.addUser(user);
@@ -42,8 +45,4 @@ public class UserResource {
         return ResponseEntity.ok().build();
     }
 
-//    @PutMapping("/user/{bookId}")
-//    public User assignBook(@PathVariable Long bookId) {
-//        return userService.assignBook(bookId);
-//    }
 }

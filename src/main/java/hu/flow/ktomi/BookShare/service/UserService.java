@@ -28,6 +28,10 @@ public class UserService {
         return userRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
 
+    public User findUserByUserName(String userName) {
+        return userRepository.findByUsername(userName);
+    }
+
     public User addUser(User user) {
         if (user.getId() != null) {
             throw new ValidationException("New users cannot have an ID");

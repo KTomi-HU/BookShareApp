@@ -10,11 +10,11 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table
+@Table(name = "books")
 @Data
 @Builder
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 public class Book {
 
     @Id
@@ -36,9 +36,8 @@ public class Book {
     @Column
     private boolean isAtHome; // indicates if the book is borrowed at the moment
 
-    @Column
-    @OneToMany
-    private List<Rating> ratings;
+    @Enumerated(value = EnumType.STRING)
+    private Rating rating;
 
     public Long getBookId() {
         return bookId;
